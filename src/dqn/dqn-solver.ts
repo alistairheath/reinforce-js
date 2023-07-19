@@ -149,8 +149,8 @@ export class DQNSolver extends Solver {
   protected epsilonGreedyActionPolicy(stateVector: Mat): number {
     let actionIndex = 0;
     if (Math.random() < this.currentEpsilon()) { // greedy Policy Filter
-      let r = Utils.randi(0, r);
-      actionIndex = r < this.numberOfActions ? r : 0;
+      let random_action_range = Utils.randi(0, r);
+      actionIndex = random_action_range < this.numberOfActions ? r : 0;
     } else {
       // Q function
       const actionVector = this.forwardQ(stateVector);
